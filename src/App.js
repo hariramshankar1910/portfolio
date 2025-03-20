@@ -1,24 +1,71 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import { Navbar, Container, Image } from 'react-bootstrap';
+import { CloudUpload } from 'react-bootstrap-icons';
 
 function App() {
+  const [imageSrc, setImageSrc] = useState('');
+
+  // Load image from localStorage on initial render
+  useEffect(() => {
+    const storedImage = localStorage.getItem('imageSrc');
+    if (storedImage) {
+      setImageSrc(storedImage);
+    }
+  }, []);
+
+  // Function to handle image click and file input
+  const handleImage = () => {
+    document.getElementById('imageUpload').click();
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <Navbar>
+      <Container 
+        className="d-flex justify-content-center" 
+        style={{ backgroundColor: 'cyan', padding: '30px' }}
+      >
+        <div 
+          style={{
+            width: '150px',
+            height: '150px',
+            borderRadius: '50%',
+            border: '1px solid black',
+            overflow: 'hidden',
+            cursor: 'pointer',
+            backgroundColor: 'black',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+          onClick={handleImage}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          {imageSrc ? (
+            <Image 
+              src={imageSrc} 
+              roundedCircle 
+              style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+              alt="Uploaded"
+            />
+          ) : (
+            <CloudUpload size={50} color="#888" />
+          )}
+          <input 
+            type="file" 
+            id="imageUpload" 
+            style={{ display: 'none' }}
+            accept="image/*"
+            onChange={(e) => {
+              const file = e.target.files[0];
+              if (file) {
+                const imageUrl = URL.createObjectURL(file);
+                setImageSrc(imageUrl);
+                localStorage.setItem('imageSrc', imageUrl); // Save to localStorage
+              }
+            }}
+          />
+        </div>
+      </Container>
+    </Navbar>
   );
 }
 
