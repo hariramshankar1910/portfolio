@@ -2,7 +2,7 @@
 
 A modern, responsive developer portfolio built with React and Bootstrap, showcasing professional experience, technical skills, and project work.
 
-![Portfolio Preview](https://via.placeholder.com/800x400/1e40af/ffffff?text=Portfolio+Preview)
+![Portfolio Preview](./screenshots/portfolio-screenshot.png)
 
 ## ✨ Features
 
