@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Skills from './components/Skills';
+import CodeSnippet from './components/CodeSnippet';
 import Projects from './components/Projects';
 import Experience from './components/Experience';
 import Contact from './components/Contact';
@@ -105,6 +106,7 @@ function App() {
       <main className="portfolio-content">
         <About highlights={highlights} />
         <Skills skillCategories={skillCategories} />
+        <CodeSnippet />
         <Projects projects={projects} />
         <Experience experiences={experiences} />
         <Contact />
