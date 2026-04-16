@@ -6,7 +6,7 @@ function Navbar() {
     <BootstrapNavbar expand="lg" bg="light" variant="light" fixed="top" className="portfolio-navbar shadow-sm">
       <Container>
         <BootstrapNavbar.Brand href="#home" className="fw-bold">
-          Hariram Shankar G
+          Hariram Shankar G 
         </BootstrapNavbar.Brand>
         <BootstrapNavbar.Toggle aria-controls="portfolio-navbar-nav" />
         <BootstrapNavbar.Collapse id="portfolio-navbar-nav">
